@@ -1,0 +1,32 @@
+﻿@model List<k.Models.SampleModel>
+
+
+<h2>JSON Data Viewer</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <p>No data found.</p>
+}
+else
+{
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Address</th>
+            <th>City</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Course</td>
+                <td>@item.Address</td>
+                <td>@item.City</td>
+            </tr>
+        }
+
+    </table>
+}
