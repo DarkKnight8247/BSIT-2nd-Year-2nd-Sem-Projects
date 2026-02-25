@@ -1,0 +1,58 @@
+aight goix
+
+sunda to danay step 1 sa ppt ni ser
+
+after mo ma dotnet run, proceed kana step 2 sa ppt ni sir
+
+that part basically meant to create the non-existent folders.
+
+so in this case ma create kaw 2 ka folders sa sulod simo app.
+
+Folder names:
+- Models
+- Controllers
+
+after creating, e open danay ang models kag himo file 'Student.cs'
+copy to dayun ang sa ppt ni sir or ang gi attach ko di kag e paste da
+make sure nga nakakas ang bullet nga symbol ha!
+
+after this proceed kana sa controllers, himo da sa sulod file 'StudentAPI.cs'
+tas do the same, copy to ang code sa ppt ni sir or ang gi attach ko di
+bali ang code da nga e paste mo 5 na ka slides, e sugpon2 lang na tanan
+
+dont mind ang ga kung ga red ang StudentAPI.Models sa babaw
+need lang na e reopen ang VSStudio nga program para ma fix
+
+after ni tanan, e run mo na iyan sa terminal 
+e stop danay running if na run mo na ang code sa start
+do CTRL + C sa terminal
+tas 'dotnet run' liwat
+
+ma gwa nada dayun ang localhost port
+copy lang na kag e paste simo browser
+
+dont be alarmed if way ga show
+
+butangi danay /swagger ang port para ma outpu
+in my case:
+- http://localhost:5250/swagger
+
+And VIOLA!
+congratulations!
+
+
+
+
+
+
+
+
+
+
+Additional info:
+  - I noticed nga kulang code ang na provide ni sir. or basi OA ra ko
+    Supposedly, 5 nada dapat naka output sa main interface
+    ma show nada dapat ang GET, POST, GET, PUT, kag DELETE
+
+To fix this:
+Copy the code I seperately provided kag e bulos to simo 'Program.cs'
