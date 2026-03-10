@@ -1,0 +1,20 @@
+{
+    "user": [
+        {
+            "username": "Franz",
+            "email": "yuh",
+            "confirmpassword": "@1234Abc",
+            "password": "$2y$10$hbhX1TzlUNK2e7nHGyBkquQUg.Nx8HMFjJ12XXnvx6a8VQv1BFo.G",
+            "otp": 323290,
+            "otp_expiry": 1773033200
+        },
+        {
+            "username": "Franx",
+            "email": "hatdog",
+            "confirmpassword": "@1234Abc",
+            "password": "$2y$10$AhwA\/G3M.j6e4eOwEjjYt.dwmHfvpiyG\/DawJGXEoRbL9X8Tmk3EC",
+            "otp": 290649,
+            "otp_expiry": 1773034327
+        }
+    ]
+}
