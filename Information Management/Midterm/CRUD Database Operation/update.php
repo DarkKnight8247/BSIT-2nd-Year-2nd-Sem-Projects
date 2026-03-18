@@ -35,10 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lastname = $_POST['lastname'];
     $firstname = $_POST['firstname'];
     $sex = $_POST['sex'];
-    $bdate = $_POST['bdate'];
-    $age = empty($_POST['age']) ? "NULL" : $_POST['age'];
     $religion = $_POST['religion'];
     $talent = $_POST['talent'];
+
+    $bdate = $_POST['bdate'];
+    $bdateobj = new DateTime($bdate);
+    $age = (new DateTime())->diff($bdateobj)->y;
 
     $sql = "UPDATE classmates_details SET
         lastname='$lastname',
@@ -68,38 +70,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php if ($row): ?>
 
 <form method="POST" action="">
+    <input type="hidden" name="stud_no" value="<?php echo htmlspecialchars($row['stud_no']); ?>">
 
-<input type="hidden" name="stud_no" value="<?php echo htmlspecialchars($row['stud_no']); ?>">
+    <label>Student No:</label>
+    <input type="text" value="<?php echo htmlspecialchars($row['stud_no']); ?>" disabled style="background-color:#eee;">
 
-<label>Student No:</label>
-<input type="text" value="<?php echo htmlspecialchars($row['stud_no']); ?>" disabled style="background-color:#eee;">
+    <label>Last Name:</label>
+    <input type="text" name="lastname" value="<?php echo htmlspecialchars($row['lastname']); ?>" required>
 
-<label>Last Name:</label>
-<input type="text" name="lastname" value="<?php echo htmlspecialchars($row['lastname']); ?>" required>
+    <label>First Name:</label>
+    <input type="text" name="firstname" value="<?php echo htmlspecialchars($row['firstname']); ?>" required>
 
-<label>First Name:</label>
-<input type="text" name="firstname" value="<?php echo htmlspecialchars($row['firstname']); ?>" required>
+    <label>Sex:</label>
+    <select name="sex">
+        <option value="Male" <?php if($row['sex']=="Male") echo "selected"; ?>>Male</option>
+        <option value="Female" <?php if($row['sex']=="Female") echo "selected"; ?>>Female</option>
+    </select>
 
-<label>Sex:</label>
-<select name="sex">
-<option value="Male" <?php if($row['sex']=="Male") echo "selected"; ?>>Male</option>
-<option value="Female" <?php if($row['sex']=="Female") echo "selected"; ?>>Female</option>
-</select>
+    <label>Birth Date:</label>
+    <input type="date" name="bdate" value="<?php echo htmlspecialchars($row['bdate']); ?>">
 
-<label>Birth Date:</label>
-<input type="date" name="bdate" value="<?php echo htmlspecialchars($row['bdate']); ?>">
+    <label>Religion:</label>
+    <input type="text" name="religion" value="<?php echo htmlspecialchars($row['religion']); ?>">
 
-<label>Age:</label>
-<input type="number" name="age" value="<?php echo htmlspecialchars($row['age']); ?>">
+    <label>Talent:</label>
+    <input type="text" name="talent" value="<?php echo htmlspecialchars($row['talent']); ?>">
 
-<label>Religion:</label>
-<input type="text" name="religion" value="<?php echo htmlspecialchars($row['religion']); ?>">
-
-<label>Talent:</label>
-<input type="text" name="talent" value="<?php echo htmlspecialchars($row['talent']); ?>">
-
-<button type="submit">Update</button>
-
+    <button type="submit">Update</button>
 </form>
 
 <?php else: ?>
