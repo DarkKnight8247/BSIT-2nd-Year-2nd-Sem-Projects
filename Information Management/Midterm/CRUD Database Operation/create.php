@@ -19,10 +19,12 @@
             $lastname = $_POST['lastname'];
             $firstname = $_POST['firstname'];
             $sex = $_POST['sex'];
-            $bdate = $_POST['bdate'];
-            $age = empty($_POST['age']) ? "NULL" : $_POST['age'];
             $religion = $_POST['religion'];
             $talent = $_POST['talent'];
+
+            $bdate = $_POST['bdate'];
+            $bdateobj = new DateTime($bdate);
+            $age = (new DateTime())->diff($bdateobj)->y;
 
             // Insert query without stud_no
             $sql = "INSERT INTO classmates_details (lastname, firstname, sex, bdate, age, religion, talent)
@@ -44,9 +46,7 @@
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
-            <label>Birth Date:</label> <input type="date" name="bdate">
-            <label>Age:</label> <input type="number" name="age">
-            <label>Religion:</label> <input type="text" name="religion">
+            <label>Birth Date:</label> <input type="date" name="bdate">            <label>Religion:</label> <input type="text" name="religion">
             <label>Talent:</label> <input type="text" name="talent">
             <button type="submit">Submit</button>
         </form>
