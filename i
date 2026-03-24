@@ -18,112 +18,110 @@ msg_senior db "Category: Senior",10,0
 msg_senior_len equ $ - msg_senior
 
 section .bss
-age resb 4   ; allow space for 3 digits + newline
+age resb 4                
 
 section .text
 global _start
 
 _start:
-; print prompt
-mov eax,4
-mov ebx,1
-mov ecx,prompt
-mov edx,prompt_len
-int 0x80
 
-; read age input
-mov eax,3
-mov ebx,0
-mov ecx,age
-mov edx,4
-int 0x80
+; write(1, prompt, len)
+mov rax, 1                 
+mov rdi, 1                
+mov rsi, prompt           
+mov rdx, prompt_len       
+syscall
+
+; read(0, age, 4)
+mov rax, 0               
+mov rdi, 0              
+mov rsi, age        
+mov rdx, 4
+syscall
 
 ; convert ASCII to integer
-mov esi,age
-xor eax,eax
-xor ebx,ebx
+mov rsi, age
+xor rax, rax
+xor rbx, rbx
 
 convert_loop:
-mov bl,[esi]
-cmp bl,10       ; newline?
+mov bl, [rsi]
+cmp bl, 10                
 je done_convert
 
-; check if negative sign
-cmp bl,'-'
+cmp bl, '-'
 je invalid
 
-sub bl,'0'
-cmp bl,9        ; check if valid digit
+sub bl, '0'
+cmp bl, 9               
 ja invalid
 
-imul eax,10
-add eax,ebx
-inc esi
+imul rax, 10       
+add rax, rbx          
+
+inc rsi             
 jmp convert_loop
 
 done_convert:
-; age is now in eax
 
-; check if >130
-cmp eax,130
+cmp rax, 130   
 jg invalid
 
-; check if negative (just extra safety)
-cmp eax,0
+cmp rax, 0              
 jl invalid
 
-; compare for categories
-cmp eax,12
+; categorize
+cmp rax, 12
 jle child
 
-cmp eax,19
+cmp rax, 19
 jle teen
 
-cmp eax,59
+cmp rax, 59
 jle adult
 
 jmp senior
 
 invalid:
-mov eax,4
-mov ebx,1
-mov ecx,msg_invalid
-mov edx,msg_invalid_len
-int 0x80
+mov rax, 1
+mov rdi, 1
+mov rsi, msg_invalid
+mov rdx, msg_invalid_len
+syscall
 jmp exit
 
 child:
-mov eax,4
-mov ebx,1
-mov ecx,msg_child
-mov edx,msg_child_len
-int 0x80
+mov rax, 1
+mov rdi, 1
+mov rsi, msg_child
+mov rdx, msg_child_len
+syscall
 jmp exit
 
 teen:
-mov eax,4
-mov ebx,1
-mov ecx,msg_teen
-mov edx,msg_teen_len
-int 0x80
+mov rax, 1
+mov rdi, 1
+mov rsi, msg_teen
+mov rdx, msg_teen_len
+syscall
 jmp exit
 
 adult:
-mov eax,4
-mov ebx,1
-mov ecx,msg_adult
-mov edx,msg_adult_len
-int 0x80
+mov rax, 1
+mov rdi, 1
+mov rsi, msg_adult
+mov rdx, msg_adult_len
+syscall
 jmp exit
 
 senior:
-mov eax,4
-mov ebx,1
-mov ecx,msg_senior
-mov edx,msg_senior_len
-int 0x80
+mov rax, 1
+mov rdi, 1
+mov rsi, msg_senior
+mov rdx, msg_senior_len
+syscall
 
 exit:
-mov eax,1
-mov ebx,0
-int 0x80
+mov rax, 60                 ; syscall: exit
+xor rdi, rdi                ; status 0
+syscall
