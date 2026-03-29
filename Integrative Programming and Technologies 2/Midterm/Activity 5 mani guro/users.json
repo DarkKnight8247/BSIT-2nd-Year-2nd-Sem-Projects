@@ -1,0 +1,49 @@
+{
+    "user": [
+        {
+            "username": "Franz",
+            "email": "franz.castor25@gmail.com",
+            "password": "$2y$10$hbhX1TzlUNK2e7nHGyBkquQUg.Nx8HMFjJ12XXnvx6a8VQv1BFo.G",
+            "otp": 211306,
+            "otp_expiry": 1773189830
+        },
+        {
+            "username": "Franx",
+            "email": "franz.castor25@gmail.com",
+            "password": "$2y$10$AhwA\/G3M.j6e4eOwEjjYt.dwmHfvpiyG\/DawJGXEoRbL9X8Tmk3EC",
+            "otp": 290649,
+            "otp_expiry": 1773034327
+        },
+        {
+            "username": "Frano",
+            "email": "franz.castor25@gmail.com",
+            "password": "$2y$10$gO7MbladBhEELQPduzN2KedFV2lzyal6eEK9W56lONXmSiAfu4hLK",
+            "otp": 963472,
+            "otp_expiry": 1773189778
+        },
+        {
+            "username": "castro",
+            "email": "franz.castor25@gmail.com",
+            "password": "$2y$10$f7BMpYTsSHO8oNTqaM1w8ONZBsigctWaEEZQpXFcvHHgAB2LzFHpe",
+            "otp": 800634,
+            "otp_expiry": 1773793133,
+            "role": "admin"
+        },
+        {
+            "username": "fren",
+            "email": "franz.castor25@gmail.com",
+            "password": "$2y$10$dJDAiRUNe.2h1g8Q1LFVdeeIY0KwwFBvv2jQ0TTFL3PYKrnOR3PTO",
+            "otp": 767604,
+            "otp_expiry": 1773794361,
+            "role": "student"
+        },
+        {
+            "fullname": "cagCiP9ILaKVLC4qLoJKIw==",
+            "phonenumber": "VutKhQo8gdKcMI6E5HHZBQ==",
+            "civilStatus": "8Pan5Pn1to3Vj2m2YM\/4gw==",
+            "username": "frnxcas",
+            "email": "JLOqa998yEcf4sJpsyDhk2iB7WzGiVV2u3orbZmef5M=",
+            "password": "$2y$10$0xSB9EfLyExdPHDaD4gFXuhjCEw83yJmd2WzfhRuZXNJNxnF2hLWC"
+        }
+    ]
+}
